@@ -1,4 +1,4 @@
-package test.stories;
+package StoryRunners;
 
 import com.epam.reportportal.jbehave.ReportPortalFormat;
 import org.jbehave.core.annotations.UsingEmbedder;
