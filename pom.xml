@@ -28,6 +28,17 @@
 
     </properties>
 
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-epam-reportportal</id>
+            <name>bintray</name>
+            <url>http://dl.bintray.com/epam/reportportal</url>
+        </repository>
+    </repositories>
+
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 
     <dependencies>
