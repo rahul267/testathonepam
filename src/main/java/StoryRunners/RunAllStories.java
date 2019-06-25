@@ -1,5 +1,6 @@
 package StoryRunners;
 
+import Steps.* ;
 import com.epam.reportportal.jbehave.ReportPortalFormat;
 import org.jbehave.core.annotations.UsingEmbedder;
 import org.jbehave.core.configuration.Configuration;
@@ -18,14 +19,13 @@ import org.jbehave.core.steps.spring.SpringStepsFactory;
 import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+//import Steps.*;
 
 
 import java.util.List;
 
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import org.jbehave.core.reporters.Format;
-import test.Steps.*;
-import utilities.devDBQueries.acct_rng_assgn;
 
 //@RunWith(JUnitReportingRunner.class)
 
@@ -52,7 +52,7 @@ RunAllStories extends JUnitStories {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new ProductControllerSteps(),new CountryConfigControllerSteps(),new RingFenceControllerSteps(),new AccountRangeSteps(),new PrdCntryBinAVailabilitySteps(),new acct_rng_assgn(), new AxonSteps(),new AssetManagementSteps(), new ReviewBinControllerSteps(),new PrdBinSharingGroupSteps() ,new UnUsedBinSpaceSteps(),new TransferAccountRangeSteps());
+        return new InstanceStepsFactory(configuration(), new MySteps());
     }
 
 //    @Override

@@ -1,18 +1,25 @@
-package Steps ;
+package Steps;
 
 import Pages.GooglePage;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.junit.Assert;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ExampleStep{
+public class MySteps {
 
-    private GooglePage page;
+    private GooglePage page ;
 
-    public GoogleSteps(WebDriver driver) {
+    public MySteps () {
+        System.setProperty("webdriver.firefox.marionette","D:\\GeckoDriver.exe");
+        WebDriver driver = new FirefoxDriver() ;
         page = new GooglePage(driver);
+
     }
+
+
 
     @When("I type query as \"$keyword\"")
     public void searchGoogle(String keyword) {
