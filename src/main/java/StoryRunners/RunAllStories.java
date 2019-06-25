@@ -52,7 +52,7 @@ RunAllStories extends JUnitStories {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new MySteps());
+        return new InstanceStepsFactory(configuration(), new MySteps(), new GetApiSteps());
     }
 
 //    @Override
