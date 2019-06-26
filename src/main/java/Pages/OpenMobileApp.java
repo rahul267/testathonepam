@@ -1,12 +1,19 @@
 package Pages;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class OpenMobileApp {
 
    private WebDriver driver;
 
 
 
-    public OpenMobileApp(String appPackage , String appActivity , String appiumServer){
+    public OpenMobileApp(String appPackage , String appActivity , String appiumServer) throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("BROWSER_NAME", "Android");
         capabilities.setCapability("VERSION", "4.4.2");
