@@ -52,7 +52,7 @@ RunAllStories extends JUnitStories {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new MySteps(), new GetApiSteps());
+        return new InstanceStepsFactory(configuration(), new MySteps(), new GetAllEventsSteps());
     }
 
 //    @Override
@@ -67,7 +67,7 @@ RunAllStories extends JUnitStories {
 
     @Override
     protected List<String> storyPaths() {
-        return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "**/*.story", "");
+        return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "/GetAllEvents.story", "");
     }
 
 
