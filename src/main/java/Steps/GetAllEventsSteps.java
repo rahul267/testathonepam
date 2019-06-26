@@ -16,7 +16,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pojo.Posts;
 
-public class GetApiSteps {
+public class GetAllEventsSteps {
 
     RequestSpecificationFactory requestSpecificationFactory;
     RequestSpecification req;
@@ -33,23 +33,19 @@ public class GetApiSteps {
     }
 
 
-    @When("I make a get Request to get POSTS")
+    @When("I make a get Request to get all events")
     public void getUserPosts() {
-        log.info("calling get posts api method");
+         log.info("calling get all events api method");
         setUp();
         response= given().
                 spec(req).contentType("application/json").
                 get();
 
     }
-    @Then("Validate the response")
-    public void validategetApiResponse() {
-        log.info("validating API Response");
-        List<Posts> users = Arrays.asList(response.as(Posts[].class));
-        for (Posts p: users) {
-            Assertions.assertThat(p.getTitle()).isNotNull();
-        }
+   @Then("validate the response having <eventTitle>,<eventId>,<eventDate>,<eventTime>")
+    public void thenValidateTheAllEventsResponse(String eventTitle,String eventId,String eventDate,String  eventTime ) {
 
     }
+
 
 }
