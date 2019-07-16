@@ -1,6 +1,6 @@
 package Steps;
 
-import BrowserDriver.BrowserFactory;
+import Framework.BrowserDriver.BrowserFactory;
 import Enums.Browser;
 import Pages.AdminPage;
 import Pages.EventsPage;
@@ -14,7 +14,7 @@ public class UIAdminSteps {
     EventsPage eventsPage ;
 
     public UIAdminSteps() {
-        driver = BrowserFactory.getDriver("firefox");
+        driver = BrowserFactory.getDriver(Browser.FIREFOX);
         adminPage = new AdminPage(driver);
     }
 

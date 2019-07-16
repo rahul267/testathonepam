@@ -1,0 +1,77 @@
+package Framework;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+
+public interface Conductor<Test> {
+    WebElement waitForElement(By by);
+    Test click(String css);
+    Test click(By by);
+    Test setText(String css, String text);
+    Test setText(By by, String text);
+    Test hoverOver(String css);
+    Test hoverOver(By by);
+    boolean isChecked(String css);
+    boolean isChecked(By by);
+    boolean isPresent(String css);
+    boolean isPresent(By by);
+    String getText(String css);
+    String getText(By by);
+    String getAttribute(String css, String attribute);
+    String getAttribute(By by, String attribute);
+    Test check(String css);
+    Test check(By by);
+    Test uncheck(String css);
+    Test uncheck(By by);
+    Test selectOptionByText(String css, String text);
+    Test selectOptionByText(By by, String text);
+    Test selectOptionByValue(String css, String value);
+    Test selectOptionByValue(By by, String value);
+    Test selectOptionByIndex(String css, Integer i);
+    Test selectOptionByIndex(By by, Integer i);
+    Test waitForWindow(String regex);
+    Test switchToWindow(String regex);
+    Test closeWindow(String regex);
+    Test closeWindow();
+    Test switchToFrame(String idOrName);
+    Test switchToFrame(int index);
+    Test switchToFrame(WebElement webElement);
+    Test switchToDefaultContent();
+    Test validatePresent(String css);
+    Test validatePresent(By by);
+    Test validateNotPresent(String css);
+    Test validateNotPresent(By by);
+    Test validateText(String css, String text);
+    Test validateText(By by, String text);
+    Test validateTextNot(String css, String text);
+    Test validateTextNot(By by, String text);
+    Test validateTextPresent(String text);
+    Test validateTextNotPresent(String text);
+    Test validateChecked(String css);
+    Test validateChecked(By by);
+    Test validateUnchecked(String css);
+    Test validateUnchecked(By by);
+    Test validateAttribute(String css, String attr, String regex);
+    Test validateAttribute(By by, String attr, String regex);
+    Test validateUrl(String regex);
+    Test validateTrue(boolean condition);
+    Test validateFalse(boolean condition);
+    @Deprecated
+    Test setAndValidateText(String css, String text);
+    @Deprecated
+    Test setAndValidateText(By by, String text);
+    Test navigateTo(String url);
+    Test goBack();
+    Test refresh();
+    Test store(String key, String value);
+    String get(String key);
+    String get(String key, String defaultValue);
+    Test log(Object object);
+    Test logInfo(Object object);
+    Test logWarn(Object object);
+    Test logError(Object object);
+    Test logDebug(Object object);
+    Test logFatal(Object object);
+    Test waitForCondition(ExpectedCondition<?> condition, long timeOutInSeconds, long sleepInMillis);
+}

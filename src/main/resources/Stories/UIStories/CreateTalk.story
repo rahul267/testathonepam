@@ -28,3 +28,7 @@ Then Click Create Event"
 !-- 1. Click 'Publish Event' button
 !-- 2. Click 'Publish' button in the event"
 !--
+
+@platform : Desktop/Mobile @Browser : Chrome /App @env : dev/stg/prod @type : smoke/integration/regression  @
+Scenario :
+Given i  Click 'New Event' button in
