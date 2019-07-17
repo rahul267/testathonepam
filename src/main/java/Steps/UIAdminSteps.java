@@ -1,6 +1,6 @@
 package Steps;
 
-import BrowserDriver.BrowserFactory;
+import Framework.BrowserDriver.BrowserFactory;
 import Enums.Browser;
 import Pages.AdminPage;
 import Pages.EventsPage;
@@ -13,14 +13,13 @@ public class UIAdminSteps {
     AdminPage adminPage;
     EventsPage eventsPage ;
 
-    public UIAdminSteps() {
-        driver = BrowserFactory.getDriver("firefox");
-        adminPage = new AdminPage(driver);
-    }
+    public UIAdminSteps() { }
 
 
     @Given("i login to Login to events platform as Event Owner Internal")
     public void givenILoginToLoginToEventsPlatformAsEventOwnerInternal() {
+        driver = BrowserFactory.getDriver(Browser.CHROME);
+        adminPage = new AdminPage(driver);
         adminPage.goToApp();
 
     }

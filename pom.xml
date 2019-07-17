@@ -241,7 +241,7 @@
                             <storyTimeoutInSecs>300</storyTimeoutInSecs>
                             <threads>${jbehave.execution.threads}</threads>
                             <includes>
-                                <include>**/RunAllStories.java</include>
+                                <include>**/RunWebStories.java</include>
                             </includes>
                             <metaFilters>
                                 <metaFilter>-skip</metaFilter>

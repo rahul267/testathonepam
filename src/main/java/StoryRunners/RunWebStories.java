@@ -1,8 +1,8 @@
 package StoryRunners;
 
-import Steps.* ;
+import Steps.GetAllEventsSteps;
+import Steps.UIAdminSteps;
 import com.epam.reportportal.jbehave.ReportPortalFormat;
-import org.jbehave.core.annotations.UsingEmbedder;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
 import org.jbehave.core.io.LoadFromClasspath;
@@ -10,28 +10,17 @@ import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.parsers.RegexPrefixCapturingPatternParser;
 import org.jbehave.core.reporters.CrossReference;
+import org.jbehave.core.reporters.Format;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.SilentStepMonitor;
-import org.jbehave.core.steps.spring.SpringApplicationContextFactory;
-import org.jbehave.core.steps.spring.SpringStepsFactory;
-import org.junit.runner.RunWith;
-import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-//import Steps.*;
-
 
 import java.util.List;
 
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
-import org.jbehave.core.reporters.Format;
 
-//@RunWith(JUnitReportingRunner.class)
-
-@UsingEmbedder(metaFilters = "skip")
-
-public class RunAllStories extends JUnitStories {
+public class RunWebStories extends JUnitStories {
 
 
     @Override
@@ -42,7 +31,7 @@ public class RunAllStories extends JUnitStories {
                 .useStoryReporterBuilder(new StoryReporterBuilder()
                         .withDefaultFormats()
                         .withFormats(Format.CONSOLE, Format.STATS, Format.HTML
-//                                ,ReportPortalFormat.INSTANCE
+//                                , ReportPortalFormat.INSTANCE
                         )
                         .withCrossReference(new CrossReference()))
                 .useStepPatternParser(new RegexPrefixCapturingPatternParser(
@@ -52,15 +41,13 @@ public class RunAllStories extends JUnitStories {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(),  new GetAllEventsSteps());
+        return new InstanceStepsFactory(configuration(), new UIAdminSteps());
     }
-
 
 
     @Override
     protected List<String> storyPaths() {
-        return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "**/APIStories/*.story", "");
+        return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "**/UIStories/*.story", "");
+
     }
-
-
 }

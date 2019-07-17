@@ -1,6 +1,6 @@
-// Google Story
-Scenario: Login and Navigate to Admin
+Feature: Login feature
 
+Scenario: Login and Navigate to Admin
 Given i login to Login to events platform as Event Owner Internal
 And Click on Profile photo at the top right corner with Admin
 
@@ -28,3 +28,7 @@ Then Click Create Event"
 !-- 1. Click 'Publish Event' button
 !-- 2. Click 'Publish' button in the event"
 !--
+
+@platform : Desktop/Mobile @Browser : Chrome /App @env : dev/stg/prod @type : smoke/integration/regression  @
+Scenario :
+Given i  Click 'New Event' button in
