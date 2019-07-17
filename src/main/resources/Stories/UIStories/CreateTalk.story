@@ -1,6 +1,6 @@
-// Google Story
-Scenario: Login and Navigate to Admin
+Feature: Login feature
 
+Scenario: Login and Navigate to Admin
 Given i login to Login to events platform as Event Owner Internal
 And Click on Profile photo at the top right corner with Admin
 

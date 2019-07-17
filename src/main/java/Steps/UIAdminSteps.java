@@ -13,14 +13,13 @@ public class UIAdminSteps {
     AdminPage adminPage;
     EventsPage eventsPage ;
 
-    public UIAdminSteps() {
-        driver = BrowserFactory.getDriver(Browser.FIREFOX);
-        adminPage = new AdminPage(driver);
-    }
+    public UIAdminSteps() { }
 
 
     @Given("i login to Login to events platform as Event Owner Internal")
     public void givenILoginToLoginToEventsPlatformAsEventOwnerInternal() {
+        driver = BrowserFactory.getDriver(Browser.CHROME);
+        adminPage = new AdminPage(driver);
         adminPage.goToApp();
 
     }
