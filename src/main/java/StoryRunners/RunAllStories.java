@@ -1,7 +1,7 @@
 package StoryRunners;
 
-import Steps.* ;
-import com.epam.reportportal.jbehave.ReportPortalFormat;
+import Steps.ApiTests.GetAllEventsSteps;
+import Steps.ApiTests.GetEventPageDetailsSteps;
 import org.jbehave.core.annotations.UsingEmbedder;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -14,11 +14,6 @@ import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.SilentStepMonitor;
-import org.jbehave.core.steps.spring.SpringApplicationContextFactory;
-import org.jbehave.core.steps.spring.SpringStepsFactory;
-import org.junit.runner.RunWith;
-import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 //import Steps.*;
 
 
@@ -52,7 +47,7 @@ public class RunAllStories extends JUnitStories {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(),  new GetAllEventsSteps());
+        return new InstanceStepsFactory(configuration(),  new GetAllEventsSteps(),new GetEventPageDetailsSteps());
     }
 
 
