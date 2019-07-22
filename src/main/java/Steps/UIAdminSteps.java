@@ -21,7 +21,7 @@ public class UIAdminSteps {
 
     @Given("i login to Login to events platform as Event Owner Internal")
     public void givenILoginToLoginToEventsPlatformAsEventOwnerInternal() {
-        driver = BrowserFactory.getDriver(Browser.CHROME);
+        driver = BrowserFactory.getDriver(Browser.FIREFOX);
         adminPage = new AdminPage(driver);
         adminPage.goToApp();
         }
@@ -49,7 +49,7 @@ public class UIAdminSteps {
 
     @Then(" Set both start and end dates in the future (start and end dates should be equal)")
     public void thenSetBothStartAndEndDatesInTheFuturestartAndEndDatesShouldBeEqual() {
-        eventsPage.fillEventDays("6-26-2039" , "6-26-2039");
+        eventsPage.fillEventDays("06262039" , "06262039");
     }
 
     @Then("Set Empty Template")
@@ -70,6 +70,6 @@ public class UIAdminSteps {
     @Then("Click Next")
 
     public void thenClickNext() {
-        // PENDING
+
     }
 }
