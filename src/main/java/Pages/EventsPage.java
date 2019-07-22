@@ -10,15 +10,15 @@ public class EventsPage {
     private WebDriver driver;
     private WebElement element;
 
-    @FindBy(linkText = "New event")
+    @FindBy(id = "new_event_btn")
     WebElement NewEventButton;
 
     @FindBy(xpath = "//input[@class= 'uui-form-element large ']")
     WebElement NewEventName;
 
-    @FindBy(xpath = "//input[@class= 'uui-form-element large ']")
+    @FindBy(xpath = "//input[@name='start']")
     WebElement EventDayStart;
-    @FindBy(xpath = "//input[@class= 'uui-form-element large ']")
+    @FindBy(xpath = "//input[@name='end']")
     WebElement EventDayEnd;
 
     @FindBy(xpath = "//input[@class= 'uui-form-element large ']")
@@ -50,8 +50,8 @@ public class EventsPage {
     }
     public void fillEventDays(String title1 , String title2)
     {
-        EventDayStart.sendKeys();
-        EventDayEnd.sendKeys();
+        EventDayStart.sendKeys(title1);
+        EventDayEnd.sendKeys(title2);
     }
     public void clickNext()
     {

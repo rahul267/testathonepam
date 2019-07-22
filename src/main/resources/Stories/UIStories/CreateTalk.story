@@ -12,23 +12,3 @@ Then Set Public privacy setting
 Then Click Next
 Then Set Empty Template
 Then Click Create Event"
-!-- "To Verify:
-!-- 1. Title
-!-- 2. Suggested URL
-!-- 3. Start and End dates
-!-- 4. Privacy setting
-!-- 5. Unlisted (should be unselected)"
-!-- Left-bottom angle
-!-- "TODO:
-!-- 1. Expand Pages section
-!-- 2. Click Add Page
-!-- 3. Select Proposed Talks
-!-- 4. Click Add button"
-!-- "TODO:
-!-- 1. Click 'Publish Event' button
-!-- 2. Click 'Publish' button in the event"
-!--
-
-@platform : Desktop/Mobile @Browser : Chrome /App @env : dev/stg/prod @type : smoke/integration/regression  @
-Scenario :
-Given i  Click 'New Event' button in
