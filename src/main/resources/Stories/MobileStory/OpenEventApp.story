@@ -1,7 +1,8 @@
 // Mobile Story
 
 Scenario: Open Event App
-Given I setup Mobile Evironment to open com.epam.events.app.debug com.epam.events.app.MainActivity on http://127.1.1.1:4723
-Then I Skip LogIn and goto event Page
-Then I Open Some Event
+Given I Launch Application
+Then I click if button OK available wait for 5 sec
+Then I click if TextView GET STARTED available wait for 2 sec
+Then I click on Text View ALL EVENTS
 
