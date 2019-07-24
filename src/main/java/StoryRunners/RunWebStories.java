@@ -1,6 +1,6 @@
 package StoryRunners;
 
-import Steps.GetAllEventsSteps;
+
 import Steps.UIAdminSteps;
 import com.epam.reportportal.jbehave.ReportPortalFormat;
 import org.jbehave.core.configuration.Configuration;
@@ -31,7 +31,7 @@ public class RunWebStories extends JUnitStories {
                 .useStoryReporterBuilder(new StoryReporterBuilder()
                         .withDefaultFormats()
                         .withFormats(Format.CONSOLE, Format.STATS, Format.HTML
-//                                , ReportPortalFormat.INSTANCE
+                                , ReportPortalFormat.INSTANCE
                         )
                         .withCrossReference(new CrossReference()))
                 .useStepPatternParser(new RegexPrefixCapturingPatternParser(

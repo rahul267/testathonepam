@@ -1,9 +1,7 @@
-package Steps.ApiTests;
+package Steps.ApiTestSteps;
 
 
 import io.restassured.RestAssured;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
@@ -15,6 +13,8 @@ import java.util.List;
 import EnvironmentSetup.RequestSpecificationFactory.RequestSpecificationFactory;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pojo.AllEvents;
 import pojo.Events;
 
@@ -25,7 +25,7 @@ public class GetAllEventsSteps {
     String envType = System.getProperty("envType");
     static Response response;
 
-    private static final Logger log = LogManager.getLogger();
+    private static final Logger log = LoggerFactory.getLogger(GetAllEventsSteps.class);
 
     protected void setUp() {
         requestSpecificationFactory = new RequestSpecificationFactory();

@@ -18,8 +18,8 @@ public class DevelopmentEnv implements RequestSpecificationAll{
 
         RequestSpecBuilder builder = new RequestSpecBuilder();
         builder.setBaseUri ("https://autorqa.events.epam.com/api/v2/events");
-        builder.addFilter(new ResponseLoggingFilter().logResponseTo(Log.getLogStream())) ;
-        builder.addFilter(new RequestLoggingFilter().logRequestTo(Log.getLogStream())) ;
+        /*builder.addFilter(new ResponseLoggingFilter().logResponseTo(Log.getLogStream())) ;
+        builder.addFilter(new RequestLoggingFilter().logRequestTo(Log.getLogStream())) ;*/
         RequestSpecification requestSpec = builder.build();
         return requestSpec ;
     }

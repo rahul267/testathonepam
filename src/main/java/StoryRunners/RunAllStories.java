@@ -1,7 +1,8 @@
 package StoryRunners;
 
-import Steps.ApiTests.GetAllEventsSteps;
-import Steps.ApiTests.GetEventPageDetailsSteps;
+import Steps.ApiTestSteps.GetAllEventsSteps;
+import Steps.ApiTestSteps.GetEventPageDetailsSteps;
+import com.epam.reportportal.jbehave.ReportPortalFormat;
 import org.jbehave.core.annotations.UsingEmbedder;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -37,7 +38,7 @@ public class RunAllStories extends JUnitStories {
                 .useStoryReporterBuilder(new StoryReporterBuilder()
                         .withDefaultFormats()
                         .withFormats(Format.CONSOLE, Format.STATS, Format.HTML
-//                                ,ReportPortalFormat.INSTANCE
+                               , ReportPortalFormat.INSTANCE
                         )
                         .withCrossReference(new CrossReference()))
                 .useStepPatternParser(new RegexPrefixCapturingPatternParser(
