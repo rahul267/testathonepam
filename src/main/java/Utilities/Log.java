@@ -1,9 +1,7 @@
 package Utilities;
 
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.io.IoBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.PrintStream;
 
@@ -11,13 +9,13 @@ import java.io.PrintStream;
 public class Log {
 
         //Initialize Log4j instance
-       private static Logger Log = LogManager.getLogger(Log.class) ;
+       private static Logger Log = LoggerFactory.getLogger(Log.class) ;
 
     //Created to build custom log appender with rest assured
-     public static PrintStream logStream = IoBuilder.forLogger(Log).buildPrintStream();
+    /* public static PrintStream logStream = IoBuilder.forLogger(Log).buildPrintStream();
 
      public static PrintStream  getLogStream () { return IoBuilder.forLogger(Log).buildPrintStream();}
-     //We can use it when starting tests
+     //We can use it when starting tests*/
         public static void startLog (String testClassName){
             Log.info("test is Starting...");
         }
@@ -43,9 +41,9 @@ public class Log {
         }
 
         //Fatal Level Logs
-        public static void fatal (String message) {
+       /* public static void fatal (String message) {
             Log.fatal(message);
-        }
+        }*/
 
         //Debug Level Logs
         public static void debug (String message) {
