@@ -17,16 +17,29 @@
         </encoder>
     </appender>
 
-    <!--'additivity' flag is important! Without it logback will double-log log messages-->
-    <!--<logger name="binary_data_logger" level="TRACE" additivity="false">-->
-        <!--<appender-ref ref="RP"/>-->
-    <!--</logger>-->
+    <appender name="RollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>target/logs/trace.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>c:/trace.%i.log</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>10</MaxIndex>
+        </rollingPolicy>
+
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10KB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
 
 
     <!-- By default, the level of the root level is set to DEBUG -->
     <root level="INFO">
         <appender-ref ref="RP"/>
         <appender-ref ref="STDOUT"/>
+        <appender-ref ref="RollingFileAppender"/>
     </root>
 
 
