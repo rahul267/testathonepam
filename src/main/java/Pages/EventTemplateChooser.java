@@ -28,11 +28,12 @@ public class EventTemplateChooser {
         public EventTemplateChooser(WebDriver driver) {
 
             this.driver = driver;
+            PageFactory.initElements(driver, this);
 
-            if(EventPageHeading.getText().equals("Choose event template"))
-            {
-                PageFactory.initElements(driver, this);
-            }
+//            if(EventPageHeading.getText().equals("Choose event template"))
+//            {
+//
+//            }
         }
 
         public void CompleteCreateEvent()

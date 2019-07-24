@@ -3,6 +3,7 @@ package Steps;
 import Framework.BrowserDriver.BrowserFactory;
 import Enums.Browser;
 import Pages.AdminPage;
+import Pages.EventTemplateChooser;
 import Pages.EventsPage;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
@@ -15,6 +16,7 @@ public class UIAdminSteps {
     WebDriver driver;
     AdminPage adminPage;
     EventsPage eventsPage =new EventsPage(driver) ;
+    EventTemplateChooser eventsPageSecond =new EventTemplateChooser(driver) ;
 
     public UIAdminSteps() { }
 
@@ -55,6 +57,7 @@ public class UIAdminSteps {
     @Then("Set Empty Template")
     public void thenSetEmptyTemplate() {
 
+        eventsPageSecond.CompleteCreateEvent();
     }
 
     @Then("Click Create Event\"")
