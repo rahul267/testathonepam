@@ -17,9 +17,7 @@ public class DevelopmentEnv implements RequestSpecificationAll{
     public RequestSpecification create() {
 
         RequestSpecBuilder builder = new RequestSpecBuilder();
-        builder.setBaseUri ("http://10.157.146.21:25003/asset-management-api");
-       // builder.setBaseUri ("http://fcrm.dev.mastercard.net:25003/asset-management-api");
-        //builder.setBaseUri ("http://10.157.148.103:25003/asset-management-api/account-range-management");
+        builder.setBaseUri ("https://autorqa.events.epam.com/api/v2/events");
         builder.addFilter(new ResponseLoggingFilter().logResponseTo(Log.getLogStream())) ;
         builder.addFilter(new RequestLoggingFilter().logRequestTo(Log.getLogStream())) ;
         RequestSpecification requestSpec = builder.build();
