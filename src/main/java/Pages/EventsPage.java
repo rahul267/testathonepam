@@ -71,11 +71,11 @@ public class EventsPage {
         nextMonth.click();
         nextMonthDay.click();
 
-        EventDayEnd.sendKeys(title2);
+       // EventDayEnd.sendKeys(title2);
     }
     public void clickNext()
     {
-      // wait.until(ExpectedConditions.elementToBeClickable(Next)) ;
+       // wait.until(ExpectedConditions.elementToBeClickable(Next)) ;
         Next.click();
     }
 
