@@ -9,6 +9,6 @@ Then validate the getEvents status code is <statusCode>
 And validate the success response having <eventTitle>,<eventId>,<eventDate>,<eventisPast>
 Examples:
 |statusCode|eventTitle|eventId|eventDate|eventisPast|
-|200|ApiTests|123|1234|false|
+|200|abc73fe2aee110815cf2bbhbjb|74681| 1 Aug 2019|false|
 
 
