@@ -1,6 +1,7 @@
 package Steps.ApiTestSteps;
 
 import EnvironmentSetup.RequestSpecificationFactory.RequestSpecificationFactory;
+import Utilities.ContextVariable;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -39,13 +40,15 @@ public class GetEventPageDetailsSteps {
 
 
    @When("I make a get request to get Eventpage details for eventId<eventId>")
-    public Response invokeEventPageDetails(@Named("eventId") int eventId) {
+    public Response invokeEventPageDetails(@Named("eventId") String eventId) {
         log.info("calling get events page details");
         setUp();
+        String eventIdContext = getEventID(eventId);
+        log.info("From UI got the eventid as"+eventIdContext);
         response= given().
                 spec(req).
                 contentType("application/json").
-                pathParam("event_id",eventId).
+                pathParam("event_id",eventIdContext).
                 get("/{event_id}/pages/details");
         return response;
     }
@@ -56,10 +59,14 @@ public class GetEventPageDetailsSteps {
         List<EventPageDetails> eventsPageDetails = Arrays.asList(response.as(EventPageDetails[].class));
         EventPageDetails details = eventsPageDetails.get(0);
         log.info("Validating event page details Response");
+        String eventTitlecontext = getEventTitle(eventTitle);
+        log.info("Event Title set in UI is:"+eventTitlecontext);
+        String eventUrlContext =eventUrl+eventTitlecontext.toLowerCase() ;
+        log.info("Event URL from UI is:"+eventUrlContext);
         Assertions.assertThat(details.getType()).contains(type);
         Assertions.assertThat(details.getProperties().getText().get(0).getType()).contains(title);
-        Assertions.assertThat(details.getProperties().getText().get(0).getText()).contains(eventTitle);
-        Assertions.assertThat(details.getProperties().getEvent_url()).contains(eventUrl);
+        Assertions.assertThat(details.getProperties().getText().get(0).getText()).contains(eventTitlecontext);
+        Assertions.assertThat(details.getProperties().getEvent_url()).contains(eventUrlContext);
         Assertions.assertThat(details.getProperties().getDetails().getDates()).contains(eventDate);
         Assertions.assertThat(details.getProperties().getDetails().isIs_past()).isFalse();
     }
@@ -146,5 +153,13 @@ public class GetEventPageDetailsSteps {
     public void validateStatusCode(@Named("statusCode") int statusCode) {
         log.info("Status code of get All events is"+statusCode);
         Assertions.assertThat(response.getStatusCode()).isEqualTo(statusCode);
+    }
+
+
+    public String getEventID(String eventID) {
+        return ContextVariable.getInstance().getContextData(eventID).toString();
+    }
+    public String getEventTitle(String eventtitle) {
+        return ContextVariable.getInstance().getContextData(eventtitle).toString();
     }
 }
