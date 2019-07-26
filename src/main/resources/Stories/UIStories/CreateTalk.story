@@ -6,7 +6,7 @@ And Click on Profile photo at the top right corner with Admin
 
 Scenario: Web Event Creation
 Given i  Click 'New Event' button
-Then Set any title <title>
+Then Set any title title
 Then Set both start and end dates in the future (start and end dates should be equal)
 Then Set Public privacy setting
 Then Click Next

@@ -39,7 +39,7 @@ public class GetEventPageDetailsSteps {
     }
 
 
-   @When("I make a get request to get Eventpage details for eventId<eventId>")
+   @When("I make a get request to get Eventpage details for $eventId")
     public Response invokeEventPageDetails(@Named("eventId") String eventId) {
         log.info("calling get events page details");
         setUp();
@@ -53,7 +53,7 @@ public class GetEventPageDetailsSteps {
         return response;
     }
 
-    @Then("validate the response having type<type>,title<title>,eventTitle<eventTitle>,eventUrl<eventUrl>,eventDate<eventDate>,isPast<isPast>")
+    @Then("validate the response having $type,$title,$eventTitle,$eventUrl,$eventDate,$isPast")
     public void validateEventDetailsResponse(@Named("type") String type, @Named("title") String title, @Named("eventTitle") String eventTitle, @Named("eventUrl") String eventUrl, @Named("eventDate") String eventDate, @Named("isPast") String isPast) {
         log.info("converting event details page response to pojo");
         List<EventPageDetails> eventsPageDetails = Arrays.asList(response.as(EventPageDetails[].class));
@@ -149,7 +149,7 @@ public class GetEventPageDetailsSteps {
         Assertions.assertThat(agenda.getProperties().getDetails().isIs_past()).isFalse();*/
     }
 
-    @Then("validate the status code is <statusCode>")
+    @Then("validate the status code is $statusCode")
     public void validateStatusCode(@Named("statusCode") int statusCode) {
         log.info("Status code of get All events is"+statusCode);
         Assertions.assertThat(response.getStatusCode()).isEqualTo(statusCode);

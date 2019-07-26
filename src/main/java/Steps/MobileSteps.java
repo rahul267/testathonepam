@@ -1,23 +1,24 @@
 package Steps;
 
-import mobileUtlity.MobileContext;
 import mobileUtlity.MobileDriverWrapper;
 import org.jbehave.core.annotations.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.net.MalformedURLException;
 
+@Component
 public class MobileSteps {
 
+    @Autowired
     private MobileDriverWrapper mobileDriver;
 
     @BeforeStories
     public void beforeStory() {
-        mobileDriver = MobileContext.annotationConfigApplicationContext.getBean(MobileDriverWrapper.class);
     }
 
     @AfterStories
     public void afterStory() {
-        if (mobileDriver != null)
             mobileDriver.close();
     }
 
@@ -31,18 +32,18 @@ public class MobileSteps {
         mobileDriver.clickOnButtonByText(text);
     }
 
-    @Then("I click on Text View $text")
+    @Given("I click on Text View $text")
     public void clickOnTextViewWithText(@Named("text") String text) {
         mobileDriver.clickOnTextViewByText(text);
     }
 
-    @Then("I click if button $text available wait for $time sec")
+    @Given("I click if button $text available wait for $time sec")
     public void clickOnButtonWithTextIfAvailable(@Named("text") String text,
                                                  @Named("time") long time) {
         mobileDriver.clickOnButtonByTextIfAvailable(text, time);
     }
 
-    @Then("I click if TextView $text available wait for $time sec")
+    @Given("I click if TextView $text available wait for $time sec")
     public void clickOnTextViewWithTextIfAvailable(@Named("text") String text,
                                                  @Named("time") long time) {
         mobileDriver.clickOnTextViewByTextIfAvailable(text, time);

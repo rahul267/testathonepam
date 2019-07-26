@@ -1,19 +1,17 @@
 package Steps;
 
-import Framework.BrowserDriver.BrowserFactory;
 import Enums.Browser;
+import Framework.BrowserDriver.BrowserFactory;
 import Pages.AdminPage;
 import Pages.EventGeneralPage;
 import Pages.EventTemplateChooser;
 import Pages.EventsPage;
 import Utilities.ContextVariable;
+import org.jbehave.core.annotations.AfterStories;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UIAdminSteps {
     WebDriver driver;
@@ -26,6 +24,11 @@ public class UIAdminSteps {
     public UIAdminSteps() {
     }
 
+    @AfterStories
+    public void afterStory() {
+        if (driver != null)
+            driver.close();
+    }
 
     @Given("i login to Login to events platform as Event Owner Internal")
     public void givenILoginToLoginToEventsPlatformAsEventOwnerInternal() {
@@ -85,8 +88,6 @@ public class UIAdminSteps {
         String titleName = title + Long.toHexString(Double.doubleToLongBits(Math.random()));
         ContextVariable.getInstance().saveContextData(title, titleName);
         eventsPage.fillTextTitle(titleName);
-        System.out.println("event Title is"+ContextVariable.getInstance().getContextData(title));
-
     }
 
     @Then("verify that title  <title> , SuggestedURL <suggestedURL> , StartEndDate <StartEndDate> and PrivacySettings<PrivacySettings> are found")

@@ -106,7 +106,8 @@ public class MobileDriverWrapper {
     }
 
     public void close() {
-        androidDriver.quit();
+        if (androidDriver != null)
+            androidDriver.quit();
     }
 
     public void clickOnButtonByTextIfAvailable(String text, long waitTime) {
