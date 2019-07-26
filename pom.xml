@@ -25,6 +25,7 @@
         <!--If yo want to run the test cases  tagged as @smoke by default uncomment the below -->
         <!--<metaFilter1>+smoke</metaFilter1>-->
         <metaFilter1></metaFilter1>
+        <runner>RunWebStories.java</runner>
 
     </properties>
 
@@ -252,7 +253,7 @@
                             <storyTimeoutInSecs>300</storyTimeoutInSecs>
                             <threads>${jbehave.execution.threads}</threads>
                             <includes>
-                                <include>**/RunWebStories.java</include>
+                                <include>**/${runner}</include>
                             </includes>
                             <metaFilters>
                                 <metaFilter>-skip</metaFilter>
