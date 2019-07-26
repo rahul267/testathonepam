@@ -1,5 +1,6 @@
 package Pages;
 
+import Utilities.ContextVariable;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -100,6 +101,8 @@ public class EventGeneralPage {
     }
 
 
-
+    public void saveEventID(String eventID) {
+        ContextVariable.getInstance().saveContextData( eventID , driver.getCurrentUrl().substring(45,50));
+    }
 
 }
