@@ -1,4 +1,4 @@
-package EnvironmentSetup.RequestSpecificationFactory;
+package EnvironmentSetup;
 
 public class RequestSpecificationFactory {
     public RequestSpecificationAll getSpec(String envType){

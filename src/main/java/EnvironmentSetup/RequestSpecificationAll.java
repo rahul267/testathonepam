@@ -1,4 +1,4 @@
-package EnvironmentSetup.RequestSpecificationFactory;
+package EnvironmentSetup;
 
 import io.restassured.specification.RequestSpecification;
 

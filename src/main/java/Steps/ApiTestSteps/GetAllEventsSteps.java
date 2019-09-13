@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 
 import java.util.List;
 
-import EnvironmentSetup.RequestSpecificationFactory.RequestSpecificationFactory;
+import EnvironmentSetup.RequestSpecificationFactory;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;

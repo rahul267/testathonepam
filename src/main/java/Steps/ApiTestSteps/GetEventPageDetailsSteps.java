@@ -1,6 +1,6 @@
 package Steps.ApiTestSteps;
 
-import EnvironmentSetup.RequestSpecificationFactory.RequestSpecificationFactory;
+import EnvironmentSetup.RequestSpecificationFactory;
 import Utilities.ContextVariable;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;

@@ -1,10 +1,7 @@
-package EnvironmentSetup.RequestSpecificationFactory;
+package EnvironmentSetup;
 
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.specification.RequestSpecification;
-import Utilities.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
